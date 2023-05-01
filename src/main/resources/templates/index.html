@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white">OhMyCode! - ToDoApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link" th:href="@{/index}">Home
+                <span class="sr-only">(current)</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/tasks}">Tasks to do</a>
+            </li>
+        </ul>
+    </div>
+    <form class="d-flex" role="acces_user">
+        <button class="btn btn-primary text-white"><a th:href="@{/user-form}" style="color:white">Add User</a></button>
+    </form>
+</nav>
+<div class="container">
+<h1 class="text-center text-secondary border border-dark border-top-0 border-left-0 border-right-0 p-3" th:text="${title}"></h1>
+<h3 class="text-center text-secondary border border-dark border-top-0 border-left-0 border-right-0 p-3" >SELECT ONE OPTION:</h3>
+    <div class="d-flex row justify-content-center buttons p-2">
+        <p><a th:href="@{/tasks}" class="btn text-white btn-dark btn-s m-2">View all Task</a></p>
+        <p><a th:href="@{/add-task}" class="btn text-white btn-dark btn-s m-2">Add New Task</a></p>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
