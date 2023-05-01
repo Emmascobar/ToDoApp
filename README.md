@@ -6,7 +6,7 @@
 
 2) Run the program to give permission to the controller routes to make changes.
 
-3) The Controller routes can be used and tested using templates provide by Thymeleaf (normally in port 8080 of localhost), altought also can be use other HTTP request and test programme.
+3) The Controller routes can be used and tested using templates provide by Thymeleaf (normally port 8080 on localhost), altought also can be use other HTTP request and test programme.
 
 
 ## Specifications
@@ -27,7 +27,7 @@ With the correct use of TO DO APP, you will be able to:
 - The API code is written with the naming conventions, among others, we use PascalCase for the name of Models, and their homonyms in SQL with snake_case. It's suggested for future modifications follows the same convention to keep clean the project.
 - The root model of the repository, controllers, models and services were correctly organized in different packages, giving the possibility to future updates and allow growth of the project, which will facilitate the development of the API architecture.
 
+I am at your disposal for any questions that you may have about them. Thanks!
 
-## I am at your disposal for any questions that you may have about them. Thanks!
 ## App done by:
 - [Emmanuel Escobar](https://github.com/Emmascobar)
