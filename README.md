@@ -11,9 +11,9 @@
 
 ## Specifications
 With the correct use of TO DO APP, you will be able to:
-#### Creater User: "Admins" and "Regular Users". 
-#### Create Task To Do: where you can assing a determinate task to a specific user. Is necesary user exist previously to will can asignate a new task.
-#### View all task on "Task list": where you can view determinate data of every task and user and you can use filters and sort every column, as well as, edit or eliminate the task you want.
+### - Creater User: "Admins" and "Regular Users". 
+### - Create Task To Do: where you can assing a determinate task to a specific user. Is necesary user exist previously to will can asignate a new task.
+### - View all task on "Task list": where you can view determinate data of every task and user and you can use filters and sort every column, as well as, edit or eliminate the task you want.
 
 #### INFO: Normally, a Specific User only can modificate or delete your own task, as well as, admins are the only can create new user. In this case for a little bit of fix time these optiones will be desativates. We're sorry for the inconvinience. I hope to fix that and also other details as well as posible.
 
