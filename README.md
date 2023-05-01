@@ -2,7 +2,7 @@
  
 ## How to configure
 
-1) "To Do APP" used SQL database, so required configure an instance and schema in MySQL with the name "Task_list", this will be database saving routes. Remember, these route will be the route that you need insert in your file="applicattionpropierty" too.
+1) "To Do APP" used SQL database, so required configure an instance and schema in MySQL with the name "task_list", this will be database saving routes. Remember, these route will be the route that you need insert in your file="applicattionpropierty" too.
 
 2) Run the program to give permission to the controller routes to make changes.
 
