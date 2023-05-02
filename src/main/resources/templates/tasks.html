@@ -82,7 +82,7 @@
                 <a th:href="@{'/page/' + ${currentPage} + '?sortField=user.address.country&sortDir=' + ${reverseSortDir}}" class="text-white">Country</a>
             </th>
             <th scope="col">
-                <a th:href="@{'/page/' + ${currentPage} + '?sortField=complete&sortDir=' + ${reverseSortDir}}" class="text-white">Complete</a>
+                <a th:href="@{'/page/' + ${currentPage} + '?sortField=complete&sortDir=' + ${reverseSortDir}}" class="text-white">Status</a>
             </th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
@@ -94,7 +94,8 @@
             <td th:text="${task.title}"></td>
             <td th:text="${task.user.username}"></td>
             <td th:text="${task.user.address.country}"></td>
-            <td th:text="${task.complete}"></td>
+            <td th:text="${task.isComplete} ? 'Complete' : 'Not Complete'">
+            </td>
             <td><a class="btn btn-primary btn-xs" th:href="@{/update-form/} + ${task.id}" th:text="'Edit'"></a></td>
             <td><a class="btn btn-danger btn-xs" th:href="@{/delete-task/} + ${task.id}" th:text="'Delete'"
                    onclick="return confirm('Are you sure? This operation cannot be undone”.');"></a></td>
