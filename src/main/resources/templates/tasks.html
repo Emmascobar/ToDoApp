@@ -47,10 +47,10 @@
             <div class="form-group mx-sm-3 mb-2">
                 <input type="text" name="keyword" class="form-control mr-3" id="keyword" th:value="${keyword}"
                        placeholder="Insert a keyword">
+                <input type="submit" class="btn btn-info btn-xs" value="Search">
+                &nbsp;
+                <input type="reset" class="btn btn-secondary btn-xs" value="Clear">
             </div>
-            <input type="submit" class="btn btn-info btn-xs" value="Search">
-            &nbsp;
-            <input type="reset" class="btn btn-secondary btn-xs" value="Clear">
         </form>
         <form class="form-inline mt-2" th:action="@{/tasks/find}">
             <div class="form-group ml-3 mb-2">
@@ -59,10 +59,10 @@
             <div class="form-group mx-sm-3 mb-2">
                 <input type="text" name="username" class="form-control mr-3" id="username" th:value="${username}"
                        placeholder="Insert a username">
+                <input type="submit" class="btn btn-info btn-xs" value="Search">
+                &nbsp;
+                <input type="reset" class="btn btn-secondary btn-xs" value="Clear">
             </div>
-            <input type="submit" class="btn btn-info btn-xs" value="Search">
-            &nbsp;
-            <input type="reset" class="btn btn-secondary btn-xs" value="Clear">
         </form>
     </div>
 

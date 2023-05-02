@@ -12,6 +12,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     @Query("select u from User u where u.username like %?1")
-    public List<User> findByUsernameEquals(String username);
+    Optional<User> findByUsernameEquals(String username);
 
 }

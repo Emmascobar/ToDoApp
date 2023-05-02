@@ -11,6 +11,8 @@ import java.util.List;
 public interface ToDoRepository extends JpaRepository<ToDo, Long> {
     @Query("SELECT t FROM ToDo t WHERE t.title LIKE %?1%")
     public List<ToDo> findAll(String keyWord);
-    @Query("SELECT t FROM ToDo t WHERE t.user.username LIKE %?1%")
-    public List<ToDo> findByUser(String username);
+    @Query("SELECT t FROM ToDo t JOIN FETCH t.user u WHERE u.username LIKE %?1%")
+    public List<ToDo> findByUsername(String username);
+
+
 }

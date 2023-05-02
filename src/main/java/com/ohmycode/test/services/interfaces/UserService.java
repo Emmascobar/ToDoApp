@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface UserService {
     public List<ToDo> getToDoList(String keyWord);
-    public List<User> getByUsername(String username);
+    public List<ToDo> getToDoListByUser(String username);
 
     public Optional<ToDo> getToDoById(Long id);
 

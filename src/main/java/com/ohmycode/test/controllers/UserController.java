@@ -41,14 +41,13 @@ public class UserController {
         return "user_access";
     }
 
-
     @GetMapping("/tasks/find")
     public String findToDos(Model model, @Param("keyword") String keyword, @Param("username") String username) {
         model.addAttribute("title", "Tasks result");
         model.addAttribute("keyword", keyword);
         model.addAttribute("username", username);
         model.addAttribute("tasks", userService.getToDoList(keyword));
-        model.addAttribute("username", userService.getByUsername(username));
+        model.addAttribute("username", userService.getToDoListByUser(username));
         return "tasks";
     }
 

@@ -30,19 +30,19 @@ public class UserServiceImpl implements UserService {
         return toDoRepository.findAll();
     }
 
+    public List<ToDo> getToDoListByUser(String username) {
+        if (username != null) {
+            return toDoRepository.findByUsername(username);
+            }
+        return toDoRepository.findAll();
+    }
+
     public Page<ToDo> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
                 Sort.by(sortField).descending();
 
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
         return this.toDoRepository.findAll(pageable);
-    }
-
-    public List<User> getByUsername(String username) {
-        if (username != null) {
-            return userRepository.findByUsernameEquals(username);
-        }
-        return userRepository.findAll();
     }
 
     public Optional<ToDo> getToDoById(Long id) {
