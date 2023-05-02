@@ -15,16 +15,16 @@
 - localhost:8080/update-form/{id} : view an exist task to modificate it.
 - localhost:8080/user-form : view the form to add a new user in database.
 
-! In futures updates will be possible add the suffix user/ or admin/ to each routes to give previous authentication and security to routes.
+In futures updates will be possible add the suffix user/ or admin/ to each routes to give previous authentication and security to routes.
 
 
 ## Specifications
 With the correct use of TO DO APP, you will be able to:
-##### - Creater User: "Admins" and "Regular Users". 
-##### - Create Task To Do: where you can assing a determinate task to a specific user. Is necesary user exist previously to will can asignate a new task.
-##### - View all task on "Task list": where you can view determinate data of every task and user and you can use filters and sort every column, as well as, edit or eliminate the task you want.
+- Creater User: "Admins" and "Regular Users". 
+- Create Task To Do: where you can assing a determinate task to a specific user. Is necesary user exist previously to will can asignate a new task.
+- View all task on "Task list": where you can view determinate data of every task and user and you can use filters and sort every column, as well as, edit or eliminate the task you want.
 
-! Normally, a Specific User only can modificate or delete your own task, as well as, admins are the only can create new user. In this case for a little bit of time these optiones will be desativates. We're sorry for the inconvinience. I hope to add that and also other details as soon as posible.
+Normally, a Specific User only can modificate or delete your own task, as well as, admins are the only can create new user. In this case for a little bit of time these optiones will be desativates. We're sorry for the inconvinience. I hope to add that and also other details as soon as posible.
 
 
 ## Main technologies used:
