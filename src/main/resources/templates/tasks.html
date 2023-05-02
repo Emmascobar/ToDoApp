@@ -94,11 +94,11 @@
             <td th:text="${task.title}"></td>
             <td th:text="${task.user.username}"></td>
             <td th:text="${task.user.address.country}"></td>
-            <td th:text="${task.isComplete} ? 'Complete' : 'Not Complete'">
+            <td th:text="${task.isComplete} ? 'Complete' : 'Incomplete'">
             </td>
             <td><a class="btn btn-primary btn-xs" th:href="@{/update-form/} + ${task.id}" th:text="'Edit'"></a></td>
             <td><a class="btn btn-danger btn-xs" th:href="@{/delete-task/} + ${task.id}" th:text="'Delete'"
-                   onclick="return confirm('Are you sure? This operation cannot be undone”.');"></a></td>
+                   onclick="return confirm('¿Are you sure? This operation cannot be undone! ');"></a></td>
         </tr>
         </tbody>
     </table>
