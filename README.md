@@ -38,7 +38,7 @@ Normally, a Specific User only can modificate or delete your own task, as well a
 - The API code is written with the naming conventions, among others, we use PascalCase for the name of Models, and their homonyms in SQL with snake_case. It's suggested for future modifications follows the same convention to keep clean the project.
 - The root model of the repository, controllers, models and services were correctly organized in different packages, giving the possibility to future updates and allow growth of the project, which will facilitate the development of the API architecture.
 
-I am at your disposal for any questions that you may have about them.
+I am at your disposal for any questions that you may have about that.
 Thanks for reading to the end!
 
 ## App done by:
