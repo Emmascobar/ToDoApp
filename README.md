@@ -30,7 +30,7 @@ Normally, a Specific User only can modificate or delete your own task, as well a
 ## Main technologies used:
 - Java / Spring / SpringBoot : to write the API code by using the libraries provided by both frameworks.
 - JPA: to map and relate the API with the database.
-- SQL: to review and administrate the database.
+- MySQL: to review and administrate the database.
 - Thymeleaf: to build a modern server-side Java template engine (View-Mode) for web in HTML.
 
 
