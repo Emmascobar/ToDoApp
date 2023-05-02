@@ -2,7 +2,7 @@
  
 ## How to configure
 
-1) "To Do APP" used SQL database, so required configure an instance and schema in MySQL with the name "task_list", this will be database saving routes. Remember, these route will be the route that you need insert in your file="applicattionpropierty" too.
+1) "To Do APP" used SQL database, so required configure an instance and schema in MySQL with the name "tasklist", this will be database saving routes. Remember, these route will be the same route that the field "datasource.url" of the file="applicattionpropierty" too. ( jdbc:mysql://localhost:3306/taskslist?serverTimezone=UTC ). Although this is already configured.
 
 2) Run the program to give permission to the controller routes to make changes.
 
