@@ -17,10 +17,12 @@ public interface UserService {
 
     public ToDo addNewToDo(ToDo todo);
 
-    public void updateToDo(Long id);
+    public void updateToDo(Authentication authentication, Long id);
 
     public void deleteToDo(Authentication authentication, Long id);
 
     Page<ToDo> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
+    User addNewUser(User user);
+
 
 }

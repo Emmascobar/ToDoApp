@@ -1,6 +1,8 @@
 package com.ohmycode.test.controllers;
 
+import com.ohmycode.test.models.entities.Role;
 import com.ohmycode.test.models.entities.ToDo;
+import com.ohmycode.test.models.entities.User;
 import com.ohmycode.test.repository.ToDoRepository;
 import com.ohmycode.test.repository.UserRepository;
 import com.ohmycode.test.services.interfaces.UserService;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,31 +37,48 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/user-access")
-    public String userAccess(Model model, @Param("username") String username, @Param("password") String password) {
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/login?error")
+    public String loginError(Model model, @Param("username") String username, @Param("password") String password) {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
-        return "user_access";
+        return "login";
     }
 
-    @GetMapping("/tasks/find")
-    public String findToDos(Model model, @Param("keyword") String keyword, @Param("username") String username) {
-        model.addAttribute("title", "Tasks result");
-        model.addAttribute("keyword", keyword);
-        model.addAttribute("username", username);
-        model.addAttribute("tasks", userService.getToDoList(keyword));
-        model.addAttribute("username", userService.getToDoListByUser(username));
-        return "tasks";
+    @GetMapping("/login?logout")
+    public String logout(Model model) {
+        model.addAttribute("title", "Thanks for use our TO DO APP");
+        return "logout";
     }
-
     @GetMapping("/tasks")
-    public String getAllPages(Model model){
+    public String getAllPages(Model model) {
         model.addAttribute("title", "All Tasks");
         return findPaginated(1, "id", "asc", model);
     }
 
+    @GetMapping("/tasks/findKey")
+    public String findToDosByKey(Model model, @Param("keyword") String keyword) {
+        model.addAttribute("title", "Tasks result");
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("tasks", userService.getToDoList(keyword));
+        return "tasks";
+    }
+
+    @GetMapping("/tasks/findUser")
+    public String findToDosByUser(Model model, @Param("username") String username) {
+        model.addAttribute("title", "Tasks result");
+        model.addAttribute("username", username);
+        model.addAttribute("tasks", userService.getToDoListByUser(username));
+        return "tasks";
+    }
+
+
     @GetMapping("/page/{pageNo}")
-    public String findPaginated(@PathVariable (value = "pageNo") int pageNo,
+    public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
                                 @RequestParam("sortField") String sortField,
                                 @RequestParam("sortDir") String sortDir,
                                 Model model) {
@@ -102,21 +122,15 @@ public class UserController {
     }
 
     @PostMapping("/save-task")
-    public String addNewToDo(@Valid @ModelAttribute("todo") ToDo todo, BindingResult result, Model model) {
-        try {
-            if(result.hasErrors()){
-                return "redirect:/tasks";
-            }
-
-            userService.addNewToDo(todo);
-            return "redirect:/tasks";
-
-        }catch(Exception e){
-            model.addAttribute("error", e.getMessage());
-            return "error";
+    public String addNewToDo(@Valid @ModelAttribute("todo") ToDo todo, Model model, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            model.addAttribute("todo", todo);
+            return "redirect:/add-task";
         }
+        userService.addNewToDo(todo);
+        attributes.addFlashAttribute("success", "Task successfully registered in data base");
+        return "redirect:/tasks";
     }
-
 
     @GetMapping("/update-form/{id}")
     public ModelAndView updateForm(Authentication authentication, @PathVariable Long id) {
@@ -128,11 +142,33 @@ public class UserController {
     }
 
     @GetMapping("/delete-task/{id}")
-    public String deleteTask(Authentication authentication, @PathVariable Long id, RedirectAttributes redirectAttrs) {
+    public String deleteTask(Authentication authentication, @PathVariable Long id, RedirectAttributes attributes) {
         userService.deleteToDo(authentication, id);
-        redirectAttrs
+        attributes
                 .addFlashAttribute("message", "Task deleted correctly")
                 .addFlashAttribute("class", "success");
         return "redirect:/tasks";
+    }
+
+    @GetMapping("/user-form")
+    public String newUserForm(Model model) {
+        User user = new User();
+        model.addAttribute("title", "Add a New User");
+        model.addAttribute("user", user);
+        return "add_user";
+    }
+
+    @PostMapping("/save-user")
+    public String createUser(@Valid @ModelAttribute("user") User user, Model model, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            model.addAttribute("user", user);
+            return "redirect:/user-form";
+        }
+        Role role = new Role("USER");
+        user.setRoles(role);
+        userService.addNewUser(user);
+        attributes.addFlashAttribute("success", "User successfully registered in data base");
+        return "redirect:/index";
+
     }
 }

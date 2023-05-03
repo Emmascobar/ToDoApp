@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8"/>
@@ -26,7 +26,7 @@
         </ul>
     </div>
     <form class="d-flex" role="acces_user">
-        <button class="btn btn-primary text-white"><a th:href="@{/user-form}" style="color:white">Add User</a></button>
+        <button class="btn btn-primary text-white"><a th:href="@{/login}" style="color:white">Sign In</a></button>
     </form>
 </nav>
 
@@ -44,18 +44,14 @@
 </div>
 
 <div class="container mt-2">
-<!--    <h2 class="text-secondary border border-info border-top-0 border-left-0 border-right-0" th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h2>-->
     <h1 class="text-secondary border border-info border-top-0 border-left-0 border-right-0"
         th:text="${title}"></h1>
-<!--    <h4 class="text-secondary border border-info border-top-0 border-left-0 border-right-0 pb-2"> Now you can add, update or eliminate your tasks :)</h4>-->
-    <div class="d-flex">
-        <p><a th:href="@{/add-task}" class="btn text-white btn-dark btn-s m-2">Add New Task</a></p>
-    </div>
+    <h4 class="text-secondary border border-info border-top-0 border-left-0 border-right-0 pb-2"> To modificate or delete a task you need to Sign In previously</h4>
 </div>
 
 <div class="container text-center align-items-center mt-3">
     <div class="d-flex column align-items-center justify-content-around">
-        <form class="form-inline mt-2" th:action="@{/tasks/findKey}">
+        <form class="form-inline mt-2" th:action="@{/tasks/find}">
             <div class="form-group ml-3 mb-2">
                 <label> Filter By Title: </label>
             </div>
@@ -67,7 +63,7 @@
                 <input type="reset" class="btn btn-secondary btn-xs" value="Clear">
             </div>
         </form>
-        <form class="form-inline mt-2" th:action="@{/tasks/findUser}">
+        <form class="form-inline mt-2" th:action="@{/tasks/find}">
             <div class="form-group ml-3 mb-2">
                 <label> Filter By Username: </label>
             </div>
@@ -99,8 +95,6 @@
             <th scope="col">
                 <a th:href="@{'/page/' + ${currentPage} + '?sortField=complete&sortDir=' + ${reverseSortDir}}" class="text-white">Status</a>
             </th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -111,9 +105,6 @@
             <td th:text="${task.user.address.country}"></td>
             <td th:text="${task.isComplete} ? 'Complete' : 'Incomplete'">
             </td>
-            <td><a class="btn btn-primary btn-xs" th:href="@{/update-form/} + ${task.id}" th:text="'Edit'"></a></td>
-            <td><a class="btn btn-danger btn-xs" th:href="@{/delete-task/} + ${task.id}" th:text="'Delete'"
-                   onclick="return confirm('¿Are you sure? This operation cannot be undone! ');"></a></td>
         </tr>
         </tbody>
     </table>

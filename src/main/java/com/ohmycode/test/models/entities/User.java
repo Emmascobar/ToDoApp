@@ -3,12 +3,9 @@ package com.ohmycode.test.models.entities;
 import com.ohmycode.test.models.utils.Address;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.security.core.GrantedAuthority;
-
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table (name = "users")
@@ -26,7 +23,6 @@ public class User implements Serializable {
     @Embedded
     private Address address;
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "rol_id")
     private Role role;
 
     public User() {
@@ -80,11 +76,11 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public Role getRole() {
+    public Role getRoles() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRoles(Role role) {
         this.role = role;
     }
 }

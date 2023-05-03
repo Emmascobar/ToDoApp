@@ -14,7 +14,7 @@ public class ToDo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @NotBlank(message = "The field can not be blank")
+    @NotBlank(message = "{Max Long 200 characters}")
     @Size(min = 5, max = 200)
     private String title;
     private boolean complete = false;

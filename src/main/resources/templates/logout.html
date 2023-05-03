@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
-    <title th:text="${title}">All tasks to do</title>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">User Access</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">OhMyCode!</a>
+    <a class="navbar-brand text-white">OhMyCode! - ToDoApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -18,29 +18,23 @@
     </button>
     <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active"><a class="nav-link" href="#">Home
+            <li class="nav-item active"><a class="nav-link" th:href="@{/index}">Home
                 <span class="sr-only">(current)</span>
             </a></li>
             <li class="nav-item"><a class="nav-link" th:href="@{/tasks}">Tasks to do</a>
             </li>
-            <li class="nav-item active"><a class="nav-link" href="#">Admin Access
-                <span class="sr-only">(current)</span>
-            </a></li>
         </ul>
     </div>
 </nav>
-<div class="container">
-<h1 class="text-center text-secondary" th:text="${title}"></h1>
-<h3 class="text-center text-secondary border border-success border-top-0 border-left-0 border-right-0" >Select one next options:</h3>
-    <div class="buttons">
-        <p><a th:href="@{/form}" class="btn btn-success btn-xs">View all Task</a></p>
-        <p><a th:href="@{/form}" class="btn btn-success btn-xs">Update Task</a></p>
-        <p><a th:href="@{/form}" class="btn btn-success btn-xs">Add New Task</a></p>
-    </div>
 
+<div class="container p-5">
+    <h1 class="text-secondary border border-info border-top-0 border-left-0 border-right-0"
+        th:text="${title}"></h1>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>

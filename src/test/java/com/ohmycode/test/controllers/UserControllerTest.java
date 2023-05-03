@@ -25,12 +25,12 @@ class UserControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
-//
-//    @Autowired
-//    UserRepository userRepository;
-//    @Autowired
-//    ToDoRepository toDoRepository;
-//
+
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    ToDoRepository toDoRepository;
+
 //    @BeforeEach
 //    void setUp() {
 //        User user = new User("Bart Simpson", "Bart2023", "Barto10", null, null);

@@ -26,16 +26,27 @@
         </ul>
     </div>
     <form class="d-flex" role="acces_user">
-        <button class="btn btn-primary text-white"><a th:href="@{/user-form}" style="color:white">Add User</a></button>
+        <button class="btn btn-primary text-white"><a th:href="@{/user-form}" style="color:white">Add User</a>
+        </button>
     </form>
 </nav>
+
+<div class="alert alert-success alert-dismissible" th:if="${success != null}">
+    <label th:text="${success}"></label>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+<div class="alert alert-danger alert-dismissible" th:if="${error != null}">
+    <label th:text="${error}"></label>
+    <button type="button" data-dismiss="alert">&times;</button>
+</div>
+<div class="alert alert-warning alert-dismissible" th:if="${warning != null}">
+    <label th:text="${warning}"></label>
+    <button type="button" data-dismiss="alert">&times;</button>
+</div>
 
 <div class="container p-5">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <div th:if=${param.success}>
-                <div class="alert alert-info">Successfully registered in data base</div>
-            </div>
             <h3 class="text-center p-3"> Add New User</h3>
             <div class="card-body">
                 <form th:action="@{/save-user}" th:object="${user}" method="post">
@@ -77,11 +88,6 @@
                         <input type="text" name="country" th:field="*{address.country}" id="country"
                                class="form-control" placeholder="Insert a Country Name" required>
                     </div>
-                    <div class="form-group mb-4">
-                        <label for="role">Assigned Role (Admin or User) :</label>
-                        <input type="text" name="role" th:field="*{role.role}" id="role"
-                               class="form-control" placeholder="Insert a role" required>
-                    </div>
                     <div class="box-footer" align="right">
                         <button type="submit" class="btn btn-primary">Add User</button>
                     </div>
@@ -94,6 +100,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

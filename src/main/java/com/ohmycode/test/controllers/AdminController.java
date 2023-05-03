@@ -1,5 +1,7 @@
 package com.ohmycode.test.controllers;
 
+import com.ohmycode.test.controllers.DTOs.NewUserDTO;
+import com.ohmycode.test.models.entities.Role;
 import com.ohmycode.test.models.entities.User;
 import com.ohmycode.test.repository.UserRepository;
 import com.ohmycode.test.services.interfaces.AdminService;
@@ -10,8 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Collection;
 
 
 @Controller
@@ -23,22 +27,6 @@ public class AdminController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/user-form")
-    public String newUserForm(Model model) {
-        User user = new User();
-        model.addAttribute("title", "Add a New User");
-        model.addAttribute("user", user);
-        return "add_user";
-    }
-    @PostMapping("/save-user")
-    public String createUser(@Valid @ModelAttribute("user") User user) {
-//        User user = new User(newUserDTO.getName(),
-//                newUserDTO.getUsername(), passwordEncoder.encode(newUserDTO.getPassword()),
-//                newUserDTO.getAddress(),
-//                Arrays.asList(new Role("ROLE_USER")));
-        adminService.addNewUser(user);
-        return "redirect:/index";
-    }
     public void deleteUser(Long id) {
         adminService.deleteUser(id);
     }

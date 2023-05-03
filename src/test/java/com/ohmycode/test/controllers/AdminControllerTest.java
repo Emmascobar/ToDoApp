@@ -8,35 +8,43 @@ import com.ohmycode.test.models.entities.User;
 import com.ohmycode.test.models.utils.Address;
 import com.ohmycode.test.repository.ToDoRepository;
 import com.ohmycode.test.repository.UserRepository;
+import com.ohmycode.test.services.interfaces.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@WebMvcTest(UserController.class)
 class AdminControllerTest {
     @Autowired
     private MockMvc mockMvc;
-//    private final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-//    private UserController userController;
-//    @Autowired
-//    UserRepository userRepository;
-//    @Autowired
-//    ToDoRepository toDoRepository;
-//    private User user;
-//    private ToDo todo;
-//    private Address address;
-//
+    private final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+    private UserController userController;
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    ToDoRepository toDoRepository;
+
+    @Autowired
+    UserService userService;
+    private User user;
+    private ToDo todo;
+    private Address address;
+
 //    @BeforeEach
 //    void setUp() {
 //        user = new User("Bart Simpson", "Bart2023", "Barto10",null, null);
@@ -54,9 +62,17 @@ class AdminControllerTest {
 //    }
 //    @Test
 //    public void testIndex() throws Exception {
+//
+//        when(userService.getToDoList("Rent").contains(todo));
+//
 //        mockMvc.perform(get("/index"))
 //                .andExpect(status().isOk())
-//                .andExpect(view().name("index"));
+//                .andExpect(view().name("index"))
+//                        .andExpect(MockMvcResultMatchers.model().attributeDoesNotExist("Hola"))
+//                                .andExpect()
+//
+//
+//        assertEquals("Welcome to this simple 'TO DO APP'", view());
 //    }
 //    @Test
 //    void newUserForm() {
