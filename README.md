@@ -3,7 +3,7 @@
 ## New Update:
 The next link give the access to the new release of ToDoApp with SpringBoot Security integrated  :)
 
-- [TODO DO APP WITH SPRINGSECURITY 🚀](https://github.com/Emmascobar/ToDoApp-2.0)
+- [TODO DO APP WITH SPRING-SECURITY 🚀](https://github.com/Emmascobar/ToDoApp-2.0)
 
 
 ## How to configure
