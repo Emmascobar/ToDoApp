@@ -1,12 +1,12 @@
 # TO DO APP
 
-### New Update:
-The next link give the access to the new release of ToDoApp with SpringBoot Security integrated :)
+## New Update:
+The next link give the access to the new release of ToDoApp with SpringBoot Security integrated  :)
 
-- [TODO DO APP WITH SPRINGSECURITY](https://github.com/Emmascobar/ToDoApp-2.0)
+- [TODO DO APP WITH SPRINGSECURITY 🚀!](https://github.com/Emmascobar/ToDoApp-2.0)
+
 
 ## How to configure
-
 1) "To Do APP" used SQL database, so required configure an instance and schema in MySQL with the name "tasklist", this will be database saving routes. Remember, these route will be the same route that the field "datasource.url" of the file="applicattionpropierty" too. ( jdbc:mysql://localhost:3306/taskslist?serverTimezone=UTC ). Although this is already configured.
 
 2) Run the program to give permission to the controller routes to make changes.
@@ -15,7 +15,7 @@ The next link give the access to the new release of ToDoApp with SpringBoot Secu
 
 ## Routes:
 - localhost:8080/index : Homepage.
-- localhost:8080/tasks :  view all tasks list. In this page you can able also search, update or delete an existing task.
+- localhost:8080/tasks :  view all tasks list. In this page you can be able also search, update or delete an existing task.
 - localhost:8080/add-task : view the form to add a new task in database.
 - localhost:8080/update-form/{id} : view an exist task to modificate it.
 - localhost:8080/user-form : view the form to add a new user in database.
